@@ -1,15 +1,14 @@
 version: 2
 jobs:
   release:
-    # Working directory required to run `dep ensure`, which is specified in
-    # .goreleaser.yml config file before.hooks. Alternatively, we could remove
-    # that hook, and run as a circle job step below.
+    # Working directory required to run `dep ensure`.
     working_directory: /go/src/github.com/scottrigby/test-goreleaser
     docker:
       - image: circleci/golang:latest
     steps:
       - checkout
       - run: go get -u github.com/golang/dep/cmd/dep
+      - run: dep ensure
       - run: go test
       - run: curl -sL https://git.io/goreleaser | bash
   test:
