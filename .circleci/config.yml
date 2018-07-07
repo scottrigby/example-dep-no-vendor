@@ -10,11 +10,21 @@ jobs:
     steps:
       - checkout
       - run: go get -u github.com/golang/dep/cmd/dep
+      - run: go test
       - run: curl -sL https://git.io/goreleaser | bash
+  test:
+    working_directory: /go/src/github.com/scottrigby/test-goreleaser
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - checkout
+      - run: go get -u github.com/golang/dep/cmd/dep
+      - run: dep ensure
+      - run: go test
 
 workflows:
   version: 2
-  goreleaser_dep_no_vendor_dir:
+  goreleaser-dep-no-vendor-dir:
     jobs:
       - release:
           filters:
@@ -25,3 +35,12 @@ workflows:
             # but tweak as needed.
             tags:
               only: /[0-9]+(\.[0-9]+)*(-.*)*/
+  branch-pr-dep-no-vendor-dir:
+    jobs:
+      - test:
+          filters:
+            # Acts only on commits to any branch. This includes pull requests
+            # from branches on the same repo. To enable Pull Requests from forks
+            # see: https://circleci.com/docs/2.0/oss/#build-pull-requests-from-forked-repositories
+            tags:
+              ignore: /.*/
