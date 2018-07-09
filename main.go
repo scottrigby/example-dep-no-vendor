@@ -7,7 +7,7 @@ import (
 )
 
 func Hello() string {
-	return "Hello release"
+	return "Hello test"
 }
 
 func main() {
