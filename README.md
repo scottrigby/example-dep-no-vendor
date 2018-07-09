@@ -39,11 +39,17 @@ The circle config file also contains a simple `go test` workflow to branches (in
 
 ## Example installation instructions
 
-### Binaries
+### Binaries (recommended)
 
 Download your preferred asset from the [releases page](https://github.com/scottrigby/example-dep-no-vendor/releases) and install manually.
 
-### Go get
+### Homebrew (MacOS)
+
+```console
+$ brew install scottrigby/tap/example-dep-no-vendor
+```
+
+### Go get (for contributing)
 
 ```console
 $ go get -d github.com/scottrigby/example-dep-no-vendor
@@ -51,7 +57,3 @@ $ cd $GOPATH/src/github.com/scottrigby/example-dep-no-vendor
 $ dep ensure -vendor-only
 $ go install
 ```
-
-### Homebrew
-
-To-do: set up a tap for this example, and define in `.goreleaser.yml`.
