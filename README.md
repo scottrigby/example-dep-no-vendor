@@ -41,13 +41,13 @@ The circle config file also contains a simple `go test` workflow to branches (in
 
 ### Binaries
 
-Download your preferred asset from the [releases page](https://github.com/scottrigby/test-goreleaser/releases) and install manually.
+Download your preferred asset from the [releases page](https://github.com/scottrigby/example-dep-no-vendor/releases) and install manually.
 
 ### Go get
 
 ```console
-$ go get -d github.com/scottrigby/test-goreleaser
-$ cd $GOPATH/src/github.com/scottrigby/test-goreleaser
+$ go get -d github.com/scottrigby/example-dep-no-vendor
+$ cd $GOPATH/src/github.com/scottrigby/example-dep-no-vendor
 $ dep ensure -vendor-only
 $ go install
 ```
