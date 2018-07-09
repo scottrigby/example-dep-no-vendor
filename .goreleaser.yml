@@ -32,3 +32,12 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+brew:
+  github:
+    owner: scottrigby
+    name: homebrew-example-dep-no-vendor
+  folder: Formula
+  homepage:  https://github.com/scottrigby/example-dep-no-vendor
+  description: Example Go project using goreleaser, and dep without committing the vendor directory
+  test: |
+    system "#{bin}/example-dep-no-vendor"
