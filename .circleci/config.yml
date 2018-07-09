@@ -23,7 +23,7 @@ jobs:
 
 workflows:
   version: 2
-  goreleaser-dep-no-vendor-dir:
+  build-releases:
     jobs:
       - release:
           filters:
@@ -34,7 +34,7 @@ workflows:
             # but tweak as needed.
             tags:
               only: /[0-9]+(\.[0-9]+)*(-.*)*/
-  branch-pr-dep-no-vendor-dir:
+  test-branches-prs:
     jobs:
       - test:
           filters:
